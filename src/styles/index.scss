@@ -1,2 +1,42 @@
-@import 'reset.scss';
-@import 'app.scss';
+@import "reset.scss";
+@import "app.scss";
+
+.header {
+  padding: 45px 75px 0 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__menu {
+    display: flex;
+    flex-direction: row;
+
+    &__logo {
+      width: 76px;
+      height: 67px;
+    }
+
+    &__ul {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+
+      &__li {
+        margin: 0 32px;
+        font-size: 18px;
+        font-weight: 500;
+        &:hover {
+          border-bottom: 3px solid #01d277;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  &__user {
+    &__img {
+      width: 58px;
+      height: 58px;
+    }
+  }
+}
