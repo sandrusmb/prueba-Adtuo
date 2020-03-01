@@ -61,7 +61,7 @@
     align-items: center;
 
     &__input {
-      width: 46%;
+      width: 61%;
       height: 60px;
       background: #f5f8fe;
       padding: 0 26px;
@@ -106,6 +106,7 @@
       &__text {
         padding: 0 30px;
         list-style: none;
+        max-width: 694px;
 
         &__title {
           font-size: 22px;

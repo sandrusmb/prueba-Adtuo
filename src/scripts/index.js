@@ -2,8 +2,8 @@ import "../styles/index.scss";
 
 //recoger datos del DOM
 
-/* let defaultImage =
-  "http://via.placeholder.com/129x194/01D277/ffffff/?text=Movie"; */
+let defaultImage =
+  "http://via.placeholder.com/129x194/01D277/ffffff/?text=MOVIE+DB";
 
 const inputElement = document.querySelector(".main__form__input");
 
@@ -17,7 +17,7 @@ const API_KEY = "bb6f51bef07465653c3e553d6ab161a8";
 
 const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
 
-const IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
+const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
 //pinto una película
 
@@ -27,7 +27,8 @@ function paintMovie(movie) {
 
   const image = document.createElement("img");
   image.classList.add("main__container__box__poster");
-  image.src = IMAGE_URL + movie.poster_path;
+  image.src =
+    movie.poster_path === null ? defaultImage : IMAGE_URL + movie.poster_path;
   image.alt = movie.title;
 
   const containerText = document.createElement("div");
@@ -39,11 +40,17 @@ function paintMovie(movie) {
 
   const date = document.createElement("p");
   date.classList.add("main__container__box__text__date");
-  date.innerHTML = movie.release_date;
+  date.innerHTML =
+    movie.release_date === undefined
+      ? "Fecha no disponible"
+      : movie.release_date;
 
   const description = document.createElement("p");
   description.classList.add("main__container__box__text__description");
-  description.innerHTML = movie.overview;
+  description.innerHTML =
+    movie.overview === ""
+      ? "Lo sentimos, no tenemos información"
+      : movie.overview;
 
   const link = document.createElement("p");
   link.classList.add("main__container__box__text__link");
@@ -60,8 +67,13 @@ function paintMovie(movie) {
   movieList.appendChild(box);
 }
 
+function deleteMovies() {
+  movieList.innerHTML = "";
+}
+
 function paintAllMovies(moviesArray) {
-  for (i = 0; i < moviesArray.length; i++) {
+  deleteMovies();
+  for (let i = 0; i < moviesArray.length; i++) {
     paintMovie(moviesArray[i]);
   }
 }
@@ -79,7 +91,7 @@ function handlerBtn(ev) {
     .then(res => res.json())
     .then(data => {
       console.log("Data:", data);
-      paintAllMovies(data);
+      paintAllMovies(data.results);
     })
     .catch(error => {
       console.log("Error", error);
