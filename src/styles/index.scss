@@ -14,6 +14,7 @@
     &__logo {
       width: 76px;
       height: 67px;
+      cursor: pointer;
     }
 
     &__ul {
@@ -26,6 +27,7 @@
         font-size: 18px;
         font-weight: 500;
         color: #2c4c69;
+        cursor: pointer;
         &:hover {
           border-bottom: 3px solid #01d277;
           border-radius: 2px;
@@ -38,6 +40,7 @@
     &__img {
       width: 58px;
       height: 58px;
+      cursor: pointer;
     }
   }
 }
@@ -58,7 +61,7 @@
     align-items: center;
 
     &__input {
-      width: 61%;
+      width: 46%;
       height: 60px;
       background: #f5f8fe;
       padding: 0 26px;
@@ -68,7 +71,7 @@
       border-radius: 12px;
       position: absolute;
 
-      &__bottom {
+      &__btn {
         background: #01d277;
         color: #ffffff;
         font-size: 18px;
@@ -77,6 +80,7 @@
         text-align: center;
         margin-right: 10px;
         padding: 15px 25px;
+        cursor: pointer;
       }
     }
   }
@@ -93,6 +97,7 @@
 
     &__text {
       padding: 0 30px;
+      list-style: none;
 
       &__title {
         font-size: 22px;
