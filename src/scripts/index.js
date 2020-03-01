@@ -1,6 +1,6 @@
 import "../styles/index.scss";
 
-//recoger datos del DOM
+//Elementos del DOM
 
 let defaultImage =
   "http://via.placeholder.com/129x194/01D277/ffffff/?text=MOVIE";
@@ -11,7 +11,7 @@ const btn = document.querySelector(".main__form__input__btn");
 
 const movieList = document.querySelector(".main__container");
 
-//valores iniciales
+//Valores iniciales
 
 const API_KEY = "bb6f51bef07465653c3e553d6ab161a8";
 
@@ -19,7 +19,7 @@ const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
 
 const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
-//pinto una película
+//Pintar una película
 
 function paintMovie(movie) {
   const box = document.createElement("div");
@@ -54,8 +54,6 @@ function paintMovie(movie) {
   link.classList.add("main__container__box__text__link");
   link.innerHTML = "Read More";
 
-  link.addEventListener("click", handlerLink);
-
   containerText.appendChild(title);
   containerText.appendChild(date);
   containerText.appendChild(description);
@@ -67,9 +65,13 @@ function paintMovie(movie) {
   movieList.appendChild(box);
 }
 
+// Borrar las películas
+
 function deleteMovies() {
   movieList.innerHTML = "";
 }
+
+//Pintar todas las películas
 
 function paintAllMovies(moviesArray) {
   deleteMovies();
@@ -78,7 +80,7 @@ function paintAllMovies(moviesArray) {
   }
 }
 
-//función manejadora
+//Función manejadora del botón Search
 
 function handlerBtn(ev) {
   ev.preventDefault();
@@ -96,11 +98,6 @@ function handlerBtn(ev) {
     .catch(error => {
       console.log("Error", error);
     });
-  console.log("Value", value);
 }
 
 btn.addEventListener("click", handlerBtn);
-
-function handlerLink(ev) {
-  console.log(ev);
-}
