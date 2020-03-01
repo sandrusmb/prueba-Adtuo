@@ -1,9 +1,9 @@
 import "../styles/index.scss";
-/* import "./data.js"; */
 
 //recoger datos del DOM
 
-let moviesArray = [];
+/* let defaultImage =
+  "http://via.placeholder.com/129x194/01D277/ffffff/?text=Movie"; */
 
 const inputElement = document.querySelector(".main__form__input");
 
@@ -17,31 +17,9 @@ const API_KEY = "bb6f51bef07465653c3e553d6ab161a8";
 
 const url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}`;
 
-const IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+const IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
 
-//fetch
-
-//función manejadora
-
-function handlerClick(ev) {
-  ev.preventDefault();
-  const value = inputElement.value;
-  const newUrl = url + "&query=" + value;
-  fetch(newUrl)
-    .then(res => res.json())
-    .then(data => {
-      console.log("Data:", data);
-      paintMovie(data.results[0]);
-    })
-    .catch(error => {
-      console.log("Error", error);
-    });
-  console.log("Value", value);
-}
-
-btn.addEventListener("click", handlerClick);
-
-//función para pintar una película
+//pinto una película
 
 function paintMovie(movie) {
   const box = document.createElement("div");
@@ -82,13 +60,31 @@ function paintMovie(movie) {
   movieList.appendChild(box);
 }
 
-function deleteAllMovies() {
-  movieList.innerHTML = "";
-}
-
 function paintAllMovies(moviesArray) {
-  deleteAllMovies();
   for (i = 0; i < moviesArray.length; i++) {
     paintMovie(moviesArray[i]);
   }
 }
+
+//función manejadora
+
+function handlerBtn(ev) {
+  ev.preventDefault();
+  const value = inputElement.value;
+
+  const newUrl = url + "&query=" + value;
+  console.log(newUrl);
+
+  fetch(newUrl)
+    .then(res => res.json())
+    .then(data => {
+      console.log("Data:", data);
+      paintAllMovies(data);
+    })
+    .catch(error => {
+      console.log("Error", error);
+    });
+  console.log("Value", value);
+}
+
+btn.addEventListener("click", handlerBtn);
