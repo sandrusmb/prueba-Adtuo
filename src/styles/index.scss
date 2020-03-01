@@ -86,42 +86,51 @@
   }
   &__container {
     display: flex;
-    flex-direction: row;
-    border: 3px solid #e5e9f2;
+    flex-direction: column;
     margin-top: 20px;
 
-    &__cartel {
-      width: 129px;
-      height: 194px;
-    }
+    &__box {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid #e5e9f2;
+      margin-bottom: 20px;
 
-    &__text {
-      padding: 0 30px;
-      list-style: none;
-
-      &__title {
-        font-size: 22px;
-        font-weight: 500;
+      &__poster {
+        width: 129px;
+        height: 194px;
+        cursor: pointer;
       }
 
-      &__date {
-        font-size: 12px;
-        font-style: italic;
-        font-weight: 400;
-        color: #8e9dae;
-      }
+      &__text {
+        padding: 0 30px;
+        list-style: none;
 
-      &__description {
-        font-size: 16px;
-        font-weight: 400;
-        line-height: 25px;
-        color: #8392a5;
-      }
+        &__title {
+          font-size: 22px;
+          font-weight: 500;
+        }
 
-      &__link {
-        font-size: 14px;
-        font-weight: 500;
-        color: #01d277;
+        &__date {
+          font-size: 12px;
+          font-style: italic;
+          font-weight: 400;
+          color: #8e9dae;
+        }
+
+        &__description {
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 25px;
+          color: #8392a5;
+          text-overflow: ellipsis;
+        }
+
+        &__link {
+          font-size: 14px;
+          font-weight: 500;
+          color: #01d277;
+          cursor: pointer;
+        }
       }
     }
   }

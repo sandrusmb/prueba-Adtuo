@@ -279,4 +279,4 @@ const data = {
   ]
 };
 
-console.log(data.results[0].overview);
+/* console.log(data.results[0].overview); */
