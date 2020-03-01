@@ -3,7 +3,7 @@ import "../styles/index.scss";
 //recoger datos del DOM
 
 let defaultImage =
-  "http://via.placeholder.com/129x194/01D277/ffffff/?text=MOVIE+DB";
+  "http://via.placeholder.com/129x194/01D277/ffffff/?text=MOVIE";
 
 const inputElement = document.querySelector(".main__form__input");
 
@@ -48,13 +48,13 @@ function paintMovie(movie) {
   const description = document.createElement("p");
   description.classList.add("main__container__box__text__description");
   description.innerHTML =
-    movie.overview === ""
-      ? "Lo sentimos, no tenemos información"
-      : movie.overview;
+    movie.overview === "" ? "Información no disponible" : movie.overview;
 
   const link = document.createElement("p");
   link.classList.add("main__container__box__text__link");
   link.innerHTML = "Read More";
+
+  link.addEventListener("click", handlerLink);
 
   containerText.appendChild(title);
   containerText.appendChild(date);
@@ -100,3 +100,7 @@ function handlerBtn(ev) {
 }
 
 btn.addEventListener("click", handlerBtn);
+
+function handlerLink(ev) {
+  console.log(ev);
+}

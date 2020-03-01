@@ -96,6 +96,7 @@
       margin-bottom: 20px;
       /* max-width: 823px;
       max-height: 194px; */
+      align-items: center;
 
       &__poster {
         width: 129px;
@@ -107,6 +108,7 @@
         padding: 0 30px;
         list-style: none;
         max-width: 694px;
+        max-height: 194px;
 
         &__title {
           font-size: 22px;
@@ -125,7 +127,8 @@
           font-weight: 400;
           line-height: 25px;
           color: #8392a5;
-          text-overflow: ellipsis;
+          max-height: 50px;
+          overflow: hidden;
         }
 
         &__link {
@@ -137,4 +140,8 @@
       }
     }
   }
+}
+
+.js-description {
+  overflow: hidden;
 }
