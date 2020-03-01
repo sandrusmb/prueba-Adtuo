@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "docs": "rm -rf docs && gulp docs",
+    "push-docs": "rm -rf docs && gulp docs && git add docs/* && git commit -m \"Update docs\" && git push"
   },
   "repository": {
     "type": "git",
